@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+		    font-family:arial, serif;
+		}
+
+		/* Contain floats: h5bp.com/q */
+		nav > ul:before, nav > ul:after {
+		    content: "";
+		    display: table;
+		}
+
+		nav > ul:after {
+		    clear: both;
+		}
+
+
+
+		nav > ul > li {
+		    float:left;
+		    position:relative;
+		    overflow:visible;
+		    width:30%;
+		    max-width:100px;
+		}
+		nav > ul > li > a{
+		    padding:.5em 1em;
+		}
+
+		nav > ul > li > ul {
+		    background:#666;
+		    position:absolute;
+		    z-index:1;
+		    padding:1em;
+		    width:200px; /*set to whatever you need*/
+		    display:none;
+		}
+
+		nav > ul > li:nth-child(2) > ul{
+		 
+		  }
+
+		nav > ul > li:last-child > ul{
+		    right:0;
+		}
+
+
+		nav > ul > li:hover {
+		    background:#666;
+		    color:#fff;
+		}
+
+		nav > ul > li:hover > ul {
+		    display:block;
+		}
+
+		nav > ul > li:hover > a,
+		nav > ul > li > ul a{
+		    color:#fff;
+		}
+
+		nav a {
+		    text-decoration:none;
+		    display:block;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+    <ul>
+        <li>
+            <a href="#">item 1</a>
+            <ul>
+                <li>
+                	<a href="http://google.com">
+                		sub item 1
+                	</a>
+                	<li>
+                <li><a href="#">sub item 1</a><li>
+                <li><a href="#">sub item 1</a><li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 2</a>
+            <ul>
+                <li><a href="#">sub item 1</a><li>
+                <li><a href="#">sub item 1</a><li>
+                <li><a href="#">sub item 1</a><li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 3</a>
+            <ul>
+                <li><a href="#">sub item 1</a><li>
+                <li><a href="#">sub item 1</a><li>
+                <li><a href="#">sub item 1</a><li>
+            </ul>
+        </li>
+      </ul>
+	</nav>
+	<div>
+    <p>
+        Lorem  ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec turpis  erat. Nam porttitor commodo gravida. Vestibulum id tellus vel enim  sollicitudin porta. Cras in nisi velit. Pellentesque at orci elit, non  ultrices elit. Proin in tellus tellus. Etiam nibh turpis, pulvinar vel  vehicula eget, convallis sit amet turpis. Nullam mi sem, rutrum et  feugiat ut, vulputate vel est. Nulla ac orci turpis. In orci est,  venenatis id rhoncus eu, porta quis ipsum. Aliquam ante turpis, lacinia  nec ornare non, pellentesque non velit. 
+    </p>    
+	</div>        
+
+</body>
+</html>
