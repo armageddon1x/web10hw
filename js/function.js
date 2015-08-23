@@ -12,10 +12,23 @@ $(document).ready(function(){
     };
 	};
 
-$(function(){
-  $(window).scroll(sticky);
-  sticky();
-});
+  $(function(){
+    $(window).scroll(sticky);
+    sticky();
+  });
+
+  $("img").click(function(){
+    var path=$(this).attr("src");
+    var h=$(".img").height();
+    console.log(h);
+    $(".description").fadeIn(1000);
+    $(".description .img").html("<img src='"+path+"' class='thumb'/>");
+    //$('#dragon').animate({
+    //  height: "400px"
+    //  }, 2000, function() {
+    //      // Animation complete event. 
+    //  });
+  });
 
 	//end
 });

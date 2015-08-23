@@ -3,94 +3,98 @@
 <head>
 	<title></title>
 	<style type="text/css">
-		body{
-		    font-family:arial, serif;
-		}
-
 		/* Contain floats: h5bp.com/q */
-		nav > ul:before, nav > ul:after {
-		    content: "";
-		    display: table;
-		}
+nav > ul:before, nav > ul:after {
+    content: "";
+    display: table;
+}
 
-		nav > ul:after {
-		    clear: both;
-		}
+nav > ul:after {
+    clear: both;
+}
+
+nav > ul {
+    *zoom: 4;
+}
+
+nav > ul > li {
+    float:left;
+    position:relative;
+    overflow:visible;
+    width:30%;
+    max-width:100px;
+}
+nav > ul > li > a{
+    padding:.5em 1em;
+}
+
+nav > ul > li > ul {
+    background:#666;
+    border-radius: 0 5px 5px 5px;
+    position:absolute;
+    z-index:1;
+    padding:1em;
+    width:200px; /*set to whatever you need*/
+    display:none;
+}
+
+nav > ul > li:nth-child(2) > ul{
+    margin-left:-50%;
+    border-radius: 5px;
+}
+
+nav > ul > li:last-child > ul{
+    right:0;
+    border-radius: 5px 0 5px 5px;
+}
 
 
+nav > ul > li:hover {
+    background:#666;
+    border-radius: 5px 5px 0 0;
+    color:#fff;
+}
 
-		nav > ul > li {
-		    float:left;
-		    position:relative;
-		    overflow:visible;
-		    width:30%;
-		    max-width:100px;
-		}
-		nav > ul > li > a{
-		    padding:.5em 1em;
-		}
+nav > ul > li:hover > ul {
+    display:block;
+}
 
-		nav > ul > li > ul {
-		    background:#666;
-		    position:absolute;
-		    z-index:1;
-		    padding:1em;
-		    width:200px; /*set to whatever you need*/
-		    display:none;
-		}
+nav > ul > li:hover > a,
+nav > ul > li > ul a{
+    color:#fff;
+}
 
-		nav > ul > li:nth-child(2) > ul{
-		 
-		  }
+nav a {
+    text-decoration:none;
+    display:block;
+}
 
-		nav > ul > li:last-child > ul{
-		    right:0;
-		}
-
-
-		nav > ul > li:hover {
-		    background:#666;
-		    color:#fff;
-		}
-
-		nav > ul > li:hover > ul {
-		    display:block;
-		}
-
-		nav > ul > li:hover > a,
-		nav > ul > li > ul a{
-		    color:#fff;
-		}
-
-		nav a {
-		    text-decoration:none;
-		    display:block;
-		}
 	</style>
 </head>
 <body>
 	<nav>
     <ul>
         <li>
-            <a href="#">item 1</a>
+            <a href="http://google.com">item 2</a>
             <ul>
-                <li>
-                	<a href="http://google.com">
-                		sub item 1
-                	</a>
+                <a href="http://google.com">
                 	<li>
-                <li><a href="#">sub item 1</a><li>
-                <li><a href="#">sub item 1</a><li>
+                		sub item 1
+                		<li>
+                	</a>
+                <a href="http://google.com">
+                	<li>
+                		sub item 1
+                		<li>
+                </a>
+                <a href="http://google.com">
+                	<li>
+                		sub item 1
+                		<li>
+                	</a>
             </ul>
         </li>
-        <li>
-            <a href="#">item 2</a>
-            <ul>
-                <li><a href="#">sub item 1</a><li>
-                <li><a href="#">sub item 1</a><li>
-                <li><a href="#">sub item 1</a><li>
-            </ul>
-        </li>
+
         <li>
             <a href="#">item 3</a>
             <ul>
