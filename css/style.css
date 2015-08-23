@@ -12,14 +12,8 @@
 	font-variant: small-caps;
 }
 #start_text{
-	margin: 0 auto;
-	border-top: 1px solid white;
-	border-bottom: 1px solid white;
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	padding: 21% 0;
+	font-size: 100px;
 }
 #myth{
 	font-size: 70px;
@@ -43,7 +37,7 @@
 }
 #foot{
 	border-top: 10px solid black;
-	font-size: 30px;
+	font-size: 40px;
 	color: white;
 	font-family: verdana;
 	padding: 40px 0;
@@ -59,8 +53,12 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#660066', endColorstr='#050005', GradientType=0 );
 }
 #foot p{
-	padding-bottom: 60px;
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 60px;
+	padding-bottom: 10px;
 	text-align: center;
+	border-bottom: 2px solid white;
 }
 #icon{
 	width: 30%;
@@ -151,7 +149,6 @@ nav a {
     text-decoration:none;
     color: white;
 }
-nav>ul>li a:hover{color: black;}
 /*nav end*/
 #intro{
 	padding: 30px 0;
@@ -169,48 +166,59 @@ nav>ul>li a:hover{color: black;}
 #intro p{
 	font-size: 20px;
 	padding: 0 20px;
+	width: 50%;
+	margin: 0 auto;
 }
 #anchor{
 	position: absolute;
 	top: 100vh;
 }
 /*pets*/
-#petbody{background: black;}
+#petbody{
+	padding: 0 10%;
+}
 #pets{
 	background: gray;
 	padding: 40px 0;
 	text-align: center;
 	font-size: 50px;
+	width: 80%;
+	position: absolute;
+	font-variant: small-caps;
 }
 #selection{
 	width: 10%;
-	background: blue;
 	height: 100vh;
 	position: fixed;
+	background: rgb(220,220,220);
 }
 #petnav{
 }
 #petnav ul{
+	margin-top: 138px;
 	list-style: none;
 }
 #petnav ul li{
 	width: 100%;
 	font: 20px;
 	padding: 10px 0;
-	padding-left: 20%; 
+	padding-left: 20%;
+	margin-left: -20px;
+	color: black;
 }
 #petnav ul li:hover{
-	width: 95%;
-	background: white;
-	color: black;
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
+	width: 100%;
+	background: rgb(30,30,30);
+	color: white;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
 }
 #petwrap{
 	width: 90%;
 	background: rgb(230,230,230);
-	height: 800px;
 	float: right;
+	position: relative;
+	top: 138px;
 }
 #petwrap p{
 	padding: 30px;
@@ -237,6 +245,7 @@ nav>ul>li a:hover{color: black;}
 }
 .img_des{
 	float: left;
+	color: white;
 }
 .img{
 	text-align: center;
