@@ -152,23 +152,44 @@ nav a {
 /*nav end*/
 #intro{
 	padding: 30px 0;
-	text-align: center;
 }
 #intro h1{
-	text-align: center;
 	margin-bottom: 20px;
 	width: 60%;
 	margin: auto;
 	border-bottom: 3px solid black;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
+	font-size: 60px;
+	text-align: center;
 }
 #intro p{
 	font-size: 20px;
 	padding: 0 20px;
 	width: 50%;
-	margin: 0 auto;
+	margin-bottom: 30px;
 }
+#intro h2{
+	text-align: left;
+	margin-bottom: 20px;
+	width: 30%;
+	margin-left: 40px;
+	border-bottom: 3px solid black;
+	padding-bottom: 20px;
+	font-size: 40px;
+	text-indent: 40px;
+}
+#left{display: inline-block;}
+#center{
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+.right_img{
+	width: 300px;
+	height: 150px;
+	margin-left: 150px;
+	}
 #anchor{
 	position: absolute;
 	top: 100vh;
