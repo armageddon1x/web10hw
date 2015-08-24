@@ -56,19 +56,20 @@
 #foot p{
 	width: 80%;
 	margin: 0 auto;
-	margin-bottom: 60px;
 	padding-bottom: 10px;
 	text-align: center;
 	border-bottom: 2px solid white;
 }
+#center_foot{
+	text-align: center;
+}
 #icon{
-	width: 30%;
+	width: 20%;
 	display: inline-block;
 }
 #icon ul{
 	list-style: none;
 	text-align: center;
-	margin-left: 100px;
 }
 #icon ul li{
 	height: 32px;
@@ -80,10 +81,25 @@
 #ig{background: #40719A;}
 #az{background: #FB9A17;}
 #eb{background: #C6C7C9;}
+#line{
+	height: 380px;
+	border: 2px solid white;;
+	width: .5%;
+	border-left: none;
+	display: inline-block;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	position: relative;
+	top: 35px;
+	margin: 0 20px;
+}
 #links{
 	display: inline-block;
-	width: 50%;
+	width: 20%;
 	font-size: 30px;
+	text-align: left;
+	position: relative;
+	top:-10px;
 }
 #links ul{
 	list-style: none;
@@ -92,7 +108,18 @@
 	height: 32px;
 	padding: 10px 20px;
 }
-#links ul li:hover{background: black;}
+#links ul li:hover{
+	background: black;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;
+}
+#copy{
+	background: rgba(0,0,0,.9);
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	padding: 5px 0;
+}
 #navigator{
 	background: rgba(0,0,0,1);
 	background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(105,105,105,1) 100%);
@@ -151,9 +178,7 @@ nav a {
     color: white;
 }
 /*nav end*/
-#intro{
-	padding: 30px 0;
-}
+#intro{padding: 30px 0;}
 #intro h1{
 	margin-bottom: 20px;
 	width: 60%;
@@ -198,9 +223,7 @@ nav a {
 /**************************************************************/
 
 /*pets*/
-#petbody{
-	padding: 0 10%;
-}
+#petbody{padding: 0 10%;}
 #pets{
 	background: gray;
 	padding: 40px 0;
@@ -508,8 +531,24 @@ nav a {
 	font-size: 24px;
 	font-style: italic;
 }
-#map{
+#bold{font-weight: bold;}
+#map_canvas{
 	width: 100%;
 	height: 300px;
 }
 /**************************************************************/
+form textarea{
+	padding: 20px;
+	font-size: 16px;
+	color: white;
+	background: rgb(40,40,40);
+	border: 2px solid black;
+	text-align: left;
+	resize: none;
+}
+form input{
+	padding: 7px 30px;
+	font-family: verdana;
+	color: white;
+	background: rgb(25,25,25);
+}
