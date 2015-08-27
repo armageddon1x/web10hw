@@ -17,17 +17,35 @@ $(document).ready(function(){
     sticky();
   });
 
+  var first_click=true;
+  var original=$("#dragon").height();
+
   $("img").click(function(){
     var path=$(this).attr("src");
-    var h=$(".img").height();
-    console.log(h);
-    $(".description").fadeIn(1000);
-    $(".description .img").html("<img src='"+path+"' class='thumb'/>");
-    //$('#dragon').animate({
-    //  height: "400px"
-    //  }, 2000, function() {
-    //      // Animation complete event. 
-    //  });
+    var h
+    var total_h;
+
+
+      $(".description").fadeIn(2000);
+      $(".description .img").html("<img src='"+path+"' class='thumb'>");
+      h=$(".img").height();
+      total_h=h+original;
+     $("#dragon").animate({
+      height: total_h
+     }, 500, function() {
+        // Animation complete event. 
+     });
+   
+
+    /*console.log(h);
+    $(".description").fadeIn(2000);
+    $(".description .img").html("<img src='"+path+"' class='thumb'>");
+     h=$(".img").height();
+    $("#dragon").animate({
+     height: h
+     }, 1000, function() {
+        // Animation complete event. 
+     });*/
   });
 
   //google map

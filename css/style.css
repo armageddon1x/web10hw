@@ -289,6 +289,7 @@ nav a {
 	width: 100%;
 	background: rgba(0,0,0,.7);
 	display: none;
+	position: absolute;
 }
 .img_des{
 	float: left;
@@ -297,8 +298,8 @@ nav a {
 .img{
 	text-align: center;
 	background: black;
-	width: 50%;
 	float: right;
+	position: relative;
 }
 .thumb{
 	max-width: 350px;
