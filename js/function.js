@@ -21,6 +21,7 @@ $(document).ready(function(){
   var parent;
   var middle;
   var child;
+  var image_child;
   var original;
   var orig;
   var flag=true;
@@ -31,10 +32,12 @@ $(document).ready(function(){
     var total_h;
     parent=$(this).parent().parent().attr("id");
     child=$("#"+parent).children(".description");
+    image_child=$("#"+parent).find(".img");
     //middle=$(".img").parent().attr("class");
     original=$("#"+parent).height();
     console.log(parent);
     console.log(child);
+    console.log(image_child);
     if (flag) {
       orig=original;
       alert(original);
@@ -51,7 +54,7 @@ $(document).ready(function(){
     //alert(child);
 
     $(child).fadeIn(2000);
-    $(".description .img").html("<img src='"+path+"' class='thumb'>");
+    $(image_child).html("<img src='"+path+"' class='thumb'>");
     h=$(".img").height();
     total_h=h+original;
    $("#"+parent).animate({
