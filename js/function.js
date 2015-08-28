@@ -17,35 +17,48 @@ $(document).ready(function(){
     sticky();
   });
 
-  var first_click=true;
-  var original=$("#dragon").height();
+  var original;
+  var parent;
+  var middle;
+  var child;
+  var original;
+  var orig;
+  var flag=true;
 
   $("img").click(function(){
     var path=$(this).attr("src");
     var h
     var total_h;
+    parent=$(this).parent().parent().attr("id");
+    child=$("#"+parent).children(".description");
+    //middle=$(".img").parent().attr("class");
+    original=$("#"+parent).height();
+    console.log(parent);
+    console.log(child);
+    if (flag) {
+      orig=original;
+      alert(original);
+      alert(orig);
+      flag=false;
+    }else{
+      original=orig;
+      alert(original);
+      alert(orig);
+    }
+    //alert(parent);
+    //alert(middle);
+    //alert(original);
+    //alert(child);
 
-
-      $(".description").fadeIn(2000);
-      $(".description .img").html("<img src='"+path+"' class='thumb'>");
-      h=$(".img").height();
-      total_h=h+original;
-     $("#dragon").animate({
-      height: total_h
-     }, 500, function() {
-        // Animation complete event. 
-     });
-   
-
-    /*console.log(h);
-    $(".description").fadeIn(2000);
+    $(child).fadeIn(2000);
     $(".description .img").html("<img src='"+path+"' class='thumb'>");
-     h=$(".img").height();
-    $("#dragon").animate({
-     height: h
-     }, 1000, function() {
-        // Animation complete event. 
-     });*/
+    h=$(".img").height();
+    total_h=h+original;
+   $("#"+parent).animate({
+    height: total_h
+   }, 500, function() {
+      // Animation complete event. 
+   });
   });
 
   //google map
