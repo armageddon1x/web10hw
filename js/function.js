@@ -38,6 +38,7 @@ $(document).ready(function(){
     console.log(parent);
     console.log(child);
     console.log(image_child);
+
     if (flag) {
       orig=original;
       alert(original);
@@ -55,7 +56,7 @@ $(document).ready(function(){
 
     $(child).fadeIn(2000);
     $(image_child).html("<img src='"+path+"' class='thumb'>");
-    h=$(".img").height();
+    h=$(image_child).height();
     total_h=h+original;
    $("#"+parent).animate({
     height: total_h
@@ -63,6 +64,200 @@ $(document).ready(function(){
       // Animation complete event. 
    });
   });
+
+  //smooth animation for anchor link
+ function filterPath(string) {
+  return string
+    .replace(/^\//,'')
+    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+    .replace(/\/$/,'');
+  }
+  var locationPath = filterPath(location.pathname);
+  $('a[href*=#]').each(function() {
+    var thisPath = filterPath(this.pathname) || locationPath;
+    if (  locationPath == thisPath
+    && (location.hostname == this.hostname || !this.hostname)
+    && this.hash.replace(/#/,'') ) {
+      var $target = $(this.hash), target = this.hash;
+      if (target) {
+        var targetOffset = $target.offset().top;
+        $(this).click(function(event) {
+          event.preventDefault();
+          $('html, body').animate({scrollTop: targetOffset}, 400, function() {
+            location.hash = target;
+          });
+        });
+      }
+    }
+  });
+
+  var fname="";
+  var lname="";
+  var email="";
+  var address="";
+  var city="";
+  var state="";
+  var zip="";
+  var card="";
+  var sec="";
+
+  $("#submit").click(function(){
+    fname=$("#fname").val();
+    lname=$("#lname").val();
+    email=$("#email").val();
+    address=$("#address").val();
+    city=$("#city").val();
+    state=$("#state").val();
+    zip=$("#zip").val();
+    card=$("#card").val();
+    security=$("#security").val();
+
+    console.log(fname);
+    console.log(lname);
+
+
+    fname_valid=validate("fname", fname);
+    lname_valid=validate("lname", lname);
+    email_valid=validate("email", email);
+    zip_valid=validate("zip", zip);
+    card_valid=validate("card",card);
+    security_valid=validate("security", security);
+    //validate("last_name", lname);
+    //validate("email", email);
+    //validate("card", card);
+    //validate("security",sec);
+    console.log(fname_valid);
+
+    if (fname_valid) {
+      alert("valid name, next step");
+    }else{
+      alert("invalid");
+    };
+
+    if (lname_valid) {
+      alert("valid last name, next step");
+    }else{
+      alert("invalid last name");
+    };
+
+    if (email_valid) {
+      alert("valid email, next step");
+    }else{
+      alert("invalid email");
+    };
+
+    if (zip_valid) {
+      alert("valid zip, next step");
+    }else{
+      alert("invalid zip");
+    };
+    
+    if (card_valid) {
+      alert("valid card, next step");
+    }else{
+      alert("invalid card");
+    };
+   
+    if (security_valid) {
+      alert("valid sec, next step");
+    }else{
+      alert("invalid sec");
+    };
+
+  });
+// (data.indexOf("0")===-1||data.indexOf("1")===-1||data.indexOf("2")===-1||data.indexOf("3")===-1||data.indexOf("4")===-1)
+  function validate(data_type,data){
+    var result=false;
+
+    if (data!=""){
+      console.log("we have input");
+      //switch
+      switch(data_type){
+        //first name
+        case "fname":
+          if (data.indexOf("0")===-1) {
+            alert("good name");
+            $("#fname").removeClass("error");
+            result=true;
+          }else{
+            alert("no numbers in name!");
+            $("#fname").addClass("error");
+            result=false;
+          }
+          break;
+          //last name
+        case "lname":
+          if (data.indexOf("0")===-1) {
+            alert("good name");
+            $("#lname").removeClass("error");
+            result=true;
+          }else{
+            alert("no numbers in name!");
+            $("#lname").addClass("error");
+            result=false;
+          }
+          break;
+          //email
+        case "email":
+          if(data.indexOf("@")!=-1){
+            //console.log(" The @ is found");
+            $("#email").removeClass("error");
+            result=true;
+            if(data.indexOf(".")!=-1 ){
+              //console.log( "valid ");
+              $("#email").removeClass("error");
+              result=true;
+            }else{
+              //console.log( "invalid email");
+              $("#email").addClass("error");
+              result=false;
+            }
+          }
+         break;
+         //zip
+        case "zip":
+          if (data.length===5) {
+            alert("good zip");
+            $("#zip").removeClass("error");
+            result=true;
+          }else{
+            alert("not enough zip!");
+            $("#zip").addClass("error");
+            result=false;
+          }
+          break;
+          //card
+        case "card":
+          if (data.length===16) {
+            alert("good card");
+            $("#card").removeClass("error");
+            result=true;
+          }else{
+            alert("not enough numbers!");
+            $("#card").addClass("error");
+            result=false;
+          }
+         break;
+         //security
+        case "security":
+         if (data.length===3) {
+            alert("good security");
+            $("#security").removeClass("error");
+            result=true;
+          }else{
+            alert("not 3 numbers!");
+            $("#security").addClass("error");
+            result=false;
+          }
+          break;
+      }
+    }else{
+      console.log("nothing here")
+      result=false;
+    }
+    return result;
+  }
+
 
   //google map
   function initialize() {
@@ -107,5 +302,7 @@ $(document).ready(function(){
     
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+      
+      
 	//end
 });
