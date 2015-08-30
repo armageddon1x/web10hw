@@ -5,17 +5,31 @@ $(document).ready(function(){
 	function sticky() {
     var window_top = $(window).scrollTop();
     var div_top = $("#anchor1").offset().top;
+
+    var window_top_2 = $(window).scrollTop();
+    var div_top_2 = $("#anchor1").offset().top+36;
+
+    console.log(window_top);
+    console.log(div_top);
+    console.log("window "+window_top_2);
+    console.log("div 2 "+div_top_2);
+
+
     if (window_top > div_top) {
       $("#myth").addClass("fixed");
     }else {
       $("#myth").removeClass("fixed");
     };
+
+    if (window_top_2 > div_top_2) {
+      $("#navigator").addClass("fixed");
+    }else {
+      $("#navigator").removeClass("fixed");
+    };
 	};
 
-  $(function(){
     $(window).scroll(sticky);
     sticky();
-  });
 
   var original;
   var parent;
@@ -112,10 +126,6 @@ $(document).ready(function(){
     card=$("#card").val();
     security=$("#security").val();
 
-    console.log(fname);
-    console.log(lname);
-
-
     fname_valid=validate("fname", fname);
     lname_valid=validate("lname", lname);
     email_valid=validate("email", email);
@@ -162,6 +172,13 @@ $(document).ready(function(){
       alert("valid sec, next step");
     }else{
       alert("invalid sec");
+    };
+
+    if (true) {
+      alert("buy");
+      alert("Thank you, "+fname+" "+lname+" for your purchase");
+      $("#purchase").submit();
+      
     };
 
   });
