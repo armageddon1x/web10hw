@@ -298,6 +298,7 @@ nav a {
 .img_des{
 	float: left;
 	color: white;
+	display: none;
 }
 .img{
 	text-align: center;
@@ -305,7 +306,7 @@ nav a {
 	float: right;
 	position: relative;
 }
-.thumb{
+.thumb{ 
 	max-width: 350px;
 	max-height: auto;
 }

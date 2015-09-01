@@ -1,72 +1,44 @@
 $(document).ready(function(){
 	//beginning
 
-	//script to stick social media bar to top on scroll
-	function sticky() {
-    var window_top = $(window).scrollTop();
-    var div_top = $("#anchor1").offset().top;
-
-    var window_top_2 = $(window).scrollTop();
-    var div_top_2 = $("#anchor1").offset().top+36;
-
-    console.log(window_top);
-    console.log(div_top);
-    console.log("window "+window_top_2);
-    console.log("div 2 "+div_top_2);
-
-
-    if (window_top > div_top) {
-      $("#myth").addClass("fixed");
-    }else {
-      $("#myth").removeClass("fixed");
-    };
-
-    if (window_top_2 > div_top_2) {
-      $("#navigator").addClass("fixed");
-    }else {
-      $("#navigator").removeClass("fixed");
-    };
-	};
-
-    $(window).scroll(sticky);
-    sticky();
-
+  //image resizer
   var original;
   var parent;
-  var middle;
+
   var child;
   var image_child;
   var original;
   var orig;
   var flag=true;
+  var flag2=true;
+  var split;
+  var more_split;
+  var more_split_original;
 
-  $("img").click(function(){
+  $(".pic").click(function(){
     var path=$(this).attr("src");
     var h
     var total_h;
+
     parent=$(this).parent().parent().attr("id");
     child=$("#"+parent).children(".description");
     image_child=$("#"+parent).find(".img");
-    //middle=$(".img").parent().attr("class");
     original=$("#"+parent).height();
-    console.log(parent);
-    console.log(child);
-    console.log(image_child);
+
+    split=path.split("/");
+    more_split=split[2].split(".");
+
+    console.log(split);
+    console.log(more_split[0]);
 
     if (flag) {
       orig=original;
-      alert(original);
-      alert(orig);
       flag=false;
     }else{
       original=orig;
-      alert(original);
-      alert(orig);
     }
-    //alert(parent);
-    //alert(middle);
-    //alert(original);
-    //alert(child);
+
+    
 
     $(child).fadeIn(2000);
     $(image_child).html("<img src='"+path+"' class='thumb'>");
@@ -75,8 +47,36 @@ $(document).ready(function(){
    $("#"+parent).animate({
     height: total_h
    }, 500, function() {
+    if (flag2){
+      more_split_original=more_split[0];
+      console.log("first "+more_split[0]);
+      console.log("first "+more_split_original);
+      $("#"+more_split[0]).fadeIn(1000);
+      flag2=false;
+    }else{
+      $("#"+more_split_original).fadeOut(200);
+      $("#"+more_split[0]).fadeIn(2000);
+      console.log("sec "+more_split[0]);
+      console.log("sec "+more_split_original);
+      more_split_original=more_split[0];
+      console.log("in "+more_split[0]);
+      console.log("in "+more_split_original);
+    };
       // Animation complete event. 
    });
+
+   $(".delete").click(function(){
+    if (orig===original){
+      $(child).fadeOut(function(){
+        $("#"+parent).animate({
+        height: orig
+   }, 200, function() {
+      // Animation complete event. 
+   });
+      });
+      
+    };
+  });
   });
 
   //smooth animation for anchor link
