@@ -28,8 +28,8 @@ $(document).ready(function(){
     split=path.split("/");
     more_split=split[2].split(".");
 
-    console.log(split);
-    console.log(more_split[0]);
+    // console.log(split);
+    // console.log(more_split[0]);
 
     if (flag) {
       orig=original;
@@ -49,18 +49,19 @@ $(document).ready(function(){
    }, 500, function() {
     if (flag2){
       more_split_original=more_split[0];
-      console.log("first "+more_split[0]);
-      console.log("first "+more_split_original);
+      // console.log("first pic"+more_split[0]);
+      // console.log("first pic"+more_split_original);
       $("#"+more_split[0]).fadeIn(1000);
       flag2=false;
     }else{
-      $("#"+more_split_original).fadeOut(200);
-      $("#"+more_split[0]).fadeIn(2000);
-      console.log("sec "+more_split[0]);
-      console.log("sec "+more_split_original);
+      $("#"+more_split_original).fadeOut(200,function(){
+        $("#"+more_split[0]).fadeIn(2000);
+      });
+      // console.log("second pic "+more_split[0]);
+      // console.log("second pic "+more_split_original);
       more_split_original=more_split[0];
-      console.log("in "+more_split[0]);
-      console.log("in "+more_split_original);
+      // console.log("in "+more_split[0]);
+      // console.log("in "+more_split_original);
     };
       // Animation complete event. 
    });
@@ -80,14 +81,15 @@ $(document).ready(function(){
   });
 
   //smooth animation for anchor link
- function filterPath(string) {
+function filterPath(string) {
   return string
-    .replace(/^\//,'')
-    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-    .replace(/\/$/,'');
-  }
-  var locationPath = filterPath(location.pathname);
-  $('a[href*=#]').each(function() {
+  .replace(/^\//,'')
+  .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+  .replace(/\/$/,'');
+}
+var locationPath = filterPath(location.pathname);
+
+$('a[href*=#]').each(function() {
     var thisPath = filterPath(this.pathname) || locationPath;
     if (  locationPath == thisPath
     && (location.hostname == this.hostname || !this.hostname)
@@ -103,7 +105,7 @@ $(document).ready(function(){
         });
       }
     }
-  });
+});
 
   var fname="";
   var lname="";
@@ -115,7 +117,7 @@ $(document).ready(function(){
   var card="";
   var sec="";
 
-  $("#submit").click(function(){
+  $("#submission").click(function(){
     fname=$("#fname").val();
     lname=$("#lname").val();
     email=$("#email").val();
@@ -132,72 +134,72 @@ $(document).ready(function(){
     zip_valid=validate("zip", zip);
     card_valid=validate("card",card);
     security_valid=validate("security", security);
+
+    if(fname_valid===true && lname_valid===true && email_valid===true && zip_valid===true && card_valid===true && security_valid===true){
+      $("#pay").show();
+      $("#pay").html("Thank You "+fname+" "+lname+" for your purchase!");
+      window.location = "buy.html#purchase";
+    };
+
     //validate("last_name", lname);
     //validate("email", email);
     //validate("card", card);
     //validate("security",sec);
-    console.log(fname_valid);
+    // console.log(fname_valid);
 
-    if (fname_valid) {
-      alert("valid name, next step");
-    }else{
-      alert("invalid");
-    };
+    // if (fname_valid) {
+    //   alert("valid name, next step");
+    // }else{
+    //   alert("invalid");
+    // };
 
-    if (lname_valid) {
-      alert("valid last name, next step");
-    }else{
-      alert("invalid last name");
-    };
+    // if (lname_valid) {
+    //   alert("valid last name, next step");
+    // }else{
+    //   alert("invalid last name");
+    // };
 
-    if (email_valid) {
-      alert("valid email, next step");
-    }else{
-      alert("invalid email");
-    };
+    // if (email_valid) {
+    //   alert("valid email, next step");
+    // }else{
+    //   alert("invalid email");
+    // };
 
-    if (zip_valid) {
-      alert("valid zip, next step");
-    }else{
-      alert("invalid zip");
-    };
+    // if (zip_valid) {
+    //   alert("valid zip, next step");
+    // }else{
+    //   alert("invalid zip");
+    // };
     
-    if (card_valid) {
-      alert("valid card, next step");
-    }else{
-      alert("invalid card");
-    };
+    // if (card_valid) {
+    //   alert("valid card, next step");
+    // }else{
+    //   alert("invalid card");
+    // };
    
-    if (security_valid) {
-      alert("valid sec, next step");
-    }else{
-      alert("invalid sec");
-    };
+    // if (security_valid) {
+    //   alert("valid sec, next step");
+    // }else{
+    //   alert("invalid sec");
+    // };
+});
 
-    if (true) {
-      alert("buy");
-      alert("Thank you, "+fname+" "+lname+" for your purchase");
-      $("#purchase").submit();
-      
-    };
-
-  });
 // (data.indexOf("0")===-1||data.indexOf("1")===-1||data.indexOf("2")===-1||data.indexOf("3")===-1||data.indexOf("4")===-1)
   function validate(data_type,data){
     var result=false;
 
     if (data!=""){
-      console.log("we have input");
+      // console.log("we have input");
       //switch
       switch(data_type){
         //first name
         case "fname":
           if (data.indexOf("0")===-1) {
-            alert("good name");
+            // alert("Good Name");
             $("#fname").removeClass("error");
             result=true;
           }else{
-            alert("no numbers in name!");
+            // alert("No numbers in name!");
             $("#fname").addClass("error");
             result=false;
           }
@@ -205,11 +207,11 @@ $(document).ready(function(){
           //last name
         case "lname":
           if (data.indexOf("0")===-1) {
-            alert("good name");
+            // alert("Good Name");
             $("#lname").removeClass("error");
             result=true;
           }else{
-            alert("no numbers in name!");
+            // alert("No numbers in name!");
             $("#lname").addClass("error");
             result=false;
           }
@@ -234,11 +236,11 @@ $(document).ready(function(){
          //zip
         case "zip":
           if (data.length===5) {
-            alert("good zip");
+            // alert("good zip");
             $("#zip").removeClass("error");
             result=true;
           }else{
-            alert("not enough zip!");
+            // alert("not enough zip!");
             $("#zip").addClass("error");
             result=false;
           }
@@ -246,11 +248,11 @@ $(document).ready(function(){
           //card
         case "card":
           if (data.length===16) {
-            alert("good card");
+            // alert("good card");
             $("#card").removeClass("error");
             result=true;
           }else{
-            alert("not enough numbers!");
+            // alert("not enough numbers!");
             $("#card").addClass("error");
             result=false;
           }
@@ -258,18 +260,24 @@ $(document).ready(function(){
          //security
         case "security":
          if (data.length===3) {
-            alert("good security");
+            // alert("good security");
             $("#security").removeClass("error");
             result=true;
           }else{
-            alert("not 3 numbers!");
+            // alert("not 3 numbers!");
             $("#security").addClass("error");
             result=false;
           }
           break;
       }
     }else{
-      console.log("nothing here")
+      // console.log("nothing here")
+      $("#fname").addClass("error");
+      $("#lname").addClass("error");
+      $("#email").addClass("error");
+      $("#zip").addClass("error");
+      $("#card").addClass("error");
+      $("#security").addClass("error");
       result=false;
     }
     return result;
